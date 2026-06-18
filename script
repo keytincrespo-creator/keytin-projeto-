@@ -1,0 +1,72 @@
+let currentQuestion = 1;
+let score = 0;
+const totalQuestions = 3;
+
+// Respostas corretas correspondentes a cada pergunta
+const correctAnswers = {
+    q1: "B",
+    q2: "A",
+    q3: "A"
+};
+
+function nextQuestion() {
+    // 1. Busca especificamente a pergunta que está visível na tela
+    const activeQuestionDiv = document.querySelector(`.question[data-question="${currentQuestion}"]`);
+    
+    // 2. Verifica se existe alguma opção marcada DENTRO desta pergunta ativa
+    const selectedOption = activeQuestionDiv.querySelector(`input[name="q${currentQuestion}"]:checked`);
+
+    // 3. BLOQUEIO SEGURO: Se não encontrar nenhuma opção marcada, exibe o alerta e INTERROMPE a função
+    if (selectedOption === null || selectedOption === undefined) {
+        alert("Por favor, selecione uma resposta antes de continuar!");
+        return; // O 'return' impede o resto do código de rodar
+    }
+
+    // 4. Se passou do bloqueio, valida se a resposta está correta e soma os pontos
+    if (selectedOption.value === correctAnswers[`q${currentQuestion}`]) {
+        score++;
+    }
+
+    // 5. Avança para a próxima tela ou mostra o resultado final
+    if (currentQuestion < totalQuestions) {
+        activeQuestionDiv.classList.remove('active');
+        currentQuestion++;
+        
+        const nextQuestionDiv = document.querySelector(`.question[data-question="${currentQuestion}"]`);
+        nextQuestionDiv.classList.add('active');
+        
+        // Se chegou na última pergunta, muda o texto do botão
+        if (currentQuestion === totalQuestions) {
+            document.getElementById('btn-next').innerText = "Finalizar Quiz";
+        }
+    } else {
+        showResults();
+    }
+}
+
+function showResults() {
+    document.getElementById('quiz').style.display = 'none';
+    const resultDiv = document.getElementById('result');
+    resultDiv.classList.remove('result-hide');
+    
+    const scoreText = document.getElementById('score-text');
+    scoreText.innerText = `Você acertou ${score} de ${totalQuestions} perguntas!`;
+}
+
+function restartQuiz() {
+    currentQuestion = 1;
+    score = 0;
+    
+    // Limpar todas as seleções feitas pelo usuário
+    const inputs = document.querySelectorAll('input[type="radio"]');
+    inputs.forEach(input => input.checked = false);
+
+    // Resetar a interface para o estado inicial
+    document.getElementById('quiz').style.display = 'block';
+    document.getElementById('result').classList.add('result-hide');
+    document.getElementById('btn-next').innerText = "Próxima Pergunta";
+
+    // Esconde todas as perguntas e mostra apenas a primeira
+    document.querySelectorAll('.question').forEach(q => q.classList.remove('active'));
+    document.querySelector('.question[data-question="1"]').classList.add('active');
+}
