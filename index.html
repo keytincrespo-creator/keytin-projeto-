@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agro Sustentável: O Futuro da Terra</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Agro Sustentável</h1>
+            <p>Cultivando o amanhã com responsabilidade, inovação e respeito à natureza.</p>
+            <a href="#informacoes" class="btn-hero">Ver Informações</a>
+        </div>
+    </header>
+
+    <main id="informacoes" class="info-container">
+        <h2 class="section-title">O que é Agricultura Sustentável?</h2>
+        
+        <div class="grid-info">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1592417817098-8f3d6eb19675?w=500&auto=format&fit=crop&q=60" alt="Preservação Ambiental">
+                <h3>Preservação Ambiental</h3>
+                <ul>
+                    <li>Práticas que evitam a degradação do solo.</li>
+                    <li>Uso racional da água através de irrigação gota a gota.</li>
+                    <li>Redução drástica de pesticidas químicos e poluentes.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=500&auto=format&fit=crop&q=60" alt="Viabilidade Econômica">
+                <h3>Viabilidade Econômica</h3>
+                <ul>
+                    <li>Garantia de lucro para o produtor a longo prazo.</li>
+                    <li>Uso de energias renováveis (solar e biomassa) na produção.</li>
+                    <li>Menor dependência de insumos externos caros.</li>
+                </ul>
+            </div>
+
+            <div class="card border-alert">
+                <img src="https://images.unsplash.com/photo-1628352081506-83c43123ed6d?w=500&auto=format&fit=crop&q=60" alt="Responsabilidade Social">
+                <h3>Justiça e Responsabilidade</h3>
+                <ul>
+                    <li>Condições de trabalho seguras e justas para o campo.</li>
+                    <li>Valorização da agricultura familiar e comunidades locais.</li>
+                    <li>Segurança alimentar: produção de alimentos mais saudáveis.</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <section class="quiz-section">
+        <div class="quiz-container">
+            <h2>Desafio Agro Sustentável</h2>
+            <p>Teste seus conhecimentos sobre o assunto!</p>
+            
+            <div id="quiz">
+                <div class="question active" data-question="1">
+                    <p class="question-text">1. Qual o principal objetivo da rotação de culturas?</p>
+                    <label><input type="radio" name="q1" value="A"> Gastar mais sementes.</label>
+                    <label><input type="radio" name="q1" value="B"> Conservar os nutrientes do solo e evitar pragas.</label>
+                    <label><input type="radio" name="q1" value="C"> Deixar a plantação mais bonita.</label>
+                </div>
+
+                <div class="question" data-question="2">
+                    <p class="question-text">2. Qual fonte de energia é considerada sustentável para o agro?</p>
+                    <label><input type="radio" name="q2" value="A"> Energia Solar.</label>
+                    <label><input type="radio" name="q2" value="B"> Combustíveis fósseis (Diesel).</label>
+                    <label><input type="radio" name="q2" value="C"> Carvão mineral.</label>
+                </div>
+
+                <div class="question" data-question="3">
+                    <p class="question-text">3. O uso excessivo de defensivos químicos pode causar:</p>
+                    <label><input type="radio" name="q3" value="A"> Contaminação do lençol freático e do solo.</label>
+                    <label><input type="radio" name="q3" value="B"> Fortalecimento natural das plantas.</label>
+                    <label><input type="radio" name="q3" value="C"> Aumento permanente da fauna local.</label>
+                </div>
+
+                <button id="btn-next" onclick="nextQuestion()">Próxima Pergunta</button>
+            </div>
+            
+            <div id="result" class="result-hide">
+                <h3>Resultado do Quiz</h3>
+                <p id="score-text"></p>
+                <button onclick="restartQuiz()" class="btn-restart">Refazer Quiz</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Agro Sustentável. Desenvolvido para um futuro melhor.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
